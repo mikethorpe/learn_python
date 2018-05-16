@@ -27,10 +27,10 @@ print(int_indexOfString)
 
 # range = used to generate a list of numbers in a range
 list_int_range = list(range(5))
-print list_int_range
+print(list_int_range)
 
 list_int_range = list(range(2,5))
-print list_int_range
+print(list_int_range)
 
 # third arguement defines increment of numbers
 numbers = list(range(5, 20, 2))
