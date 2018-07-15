@@ -57,7 +57,7 @@ pizza = {
     'rating' : 5
 }
 
-print pizza['name']
+print(pizza['name'])
 
 price_of_drink = 5
 funds = 4
@@ -91,10 +91,9 @@ def add_number(some_num, another_num):
 print(add_number(4,2))
 
 class Car :
-    # private properties
-    # __model = ""
-    # __brand = ""
-    # public properties
+    
+    # private class properties (static)
+    __i = 1
 
     # constructor
     def __init__(self, model, brand):
@@ -102,7 +101,11 @@ class Car :
         self.__brand = brand
         self.__name = "abu"
 
-    
+    # get private class property
+    @property
+    def i(cls):
+        return cls.__i
+
     # setter methods
     def set_model(self, model):
         self.__model = model
@@ -110,29 +113,37 @@ class Car :
     def set_brand(self, brand):
         self.__brand = brand
     
-    # getter methods
-    def get_model(self) :
+    @property
+    def model(self) :
         return self.__model
 
     @property    
     def brand(self) :
         return self.__brand
     
-    def make_sound(self) :
-        print("vroom vroom")
-
     @property
     def name(self):
         return self.__name
     
+    @staticmethod
+    def make_sound() :
+        print("vroom vroom")
+
     @name.setter
     def name(self, name):
         self.__name = name
 
 
+print("This is mike's car")
 mikes_car = Car("corsa", "vauxhall")
-
-
 mikes_car.name = "karen"
-print (mikes_car._Car__name)
-print (mikes_car.name)
+print(mikes_car._Car__name)
+print(mikes_car.name)
+print(mikes_car.i)
+
+print("This is simon's car")
+simons_car = Car("sportage","kia")
+print(simons_car.model)
+print(simons_car.brand)
+print(simons_car.i)
+Car.make_sound()
